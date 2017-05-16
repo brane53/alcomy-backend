@@ -87,5 +87,10 @@
           "Red"
         ],
         "vsicons.presets.angular": false,
-        "typescript.check.tscVersion": false
+        "typescript.check.tscVersion": false,
+        "emmet.excludeLanguages": [
+            "markdown",
+            "typescript",
+            "javascript"
+        ]
     }
