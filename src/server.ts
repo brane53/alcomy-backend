@@ -36,15 +36,15 @@ class Server {
     app.use(bodyParser.json());
     app.use(errorhandler());
     app.use(cookieParser());
-    app.use(csrf({ cookie: true }));
+    //app.use(csrf({ cookie: true }));
 
-    app.use((req: Request, res: Response, next: NextFunction) => {
+    // app.use((req: Request, res: Response, next: NextFunction) => {
       
-      var csrfToken = req.csrfToken();
-      res.locals._csrf = csrfToken;
-      res.cookie('XSRF-TOKEN', csrfToken);
-      next();
-    });
+    //   var csrfToken = req.csrfToken();
+    //   res.locals._csrf = csrfToken;
+    //   res.cookie('XSRF-TOKEN', csrfToken);
+    //   next();
+    // });
 
     process.on('uncaughtException', (err) => {
       if (err) {
@@ -54,31 +54,14 @@ class Server {
     });
   }
 
-  // initCustomMiddleware() {
-  //   if (process.platform === "win32") {
-  //     require("readline").createInterface({
-  //       input: process.stdin,
-  //       output: process.stdout
-  //     }).on("SIGINT", () => {
-  //       console.log('SIGINT: Closing MongoDB connection');
-  //       database.close();
-  //     });
-  //   }
-
-  //   process.on('SIGINT', () => {
-  //     console.log('SIGINT: Closing MongoDB connection');
-  //     database.close();
-  //   });
-  // }
-
-
   initRoutes() {
-    router.load(app, './controllers');
+
+    router.load(app, './dist/controllers');
 
     // redirect all others to the index (HTML5 history)
-    app.all('/*', (req, res) => {
-      res.sendFile(__dirname + '/public/index.html');
-    });
+    // app.all('/*', (req, res) => {
+    //   res.sendFile(__dirname + '/public/index.html');
+    // });
   }
 
 }
