@@ -3,11 +3,40 @@
 class ResidentsController {
   
   constructor(router) {
-    router.get('/', this.getResidents)
+    // baseURL: /api/residents
+    router.get('/', this.getResidents);
+    router.get('/:id', this.getResident);
   }
-
+  
+  // gets a list of residents from the residents model
   getResidents(req, res) {
-    res.send('List of Residents');
+    const residents = [
+      {
+        firstName: "Brane",
+        lastName: "Vrajich"
+      },
+      {
+        firstName: "Brane",
+        lastName: "Vrajich"
+      },
+      {
+        firstName: "Brane",
+        lastName: "Vrajich"
+      },
+      {
+        firstName: "Brane",
+        lastName: "Vrajich"
+      },
+      {
+        firstName: "Brane",
+        lastName: "Vrajich"
+      },
+    ];
+    res.json(residents);
+  }
+  
+  getResident(req, res) {
+
   }
 
 }
