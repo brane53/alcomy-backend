@@ -1,3 +1,5 @@
+import Resident from '../../../models/residents';
+
 
 
 class ResidentsController {
@@ -6,6 +8,7 @@ class ResidentsController {
     // baseURL: /api/residents
     router.get('/', this.getResidents);
     router.get('/:id', this.getResident);
+    router.post('/', this.addResident)
   }
   
   // gets a list of residents from the residents model
@@ -32,11 +35,22 @@ class ResidentsController {
         lastName: "Vrajich"
       },
     ];
-    res.json(residents);
+    Resident.getResidents().then((result) => {
+      res.json(result.rows);
+
+    })
+    .catch((err) => {
+      console.log(`getResidents failed: ${err}`);
+    });
+
   }
   
   getResident(req, res) {
 
+  }
+
+  addResident() {
+    Resident.addResident()
   }
 
 }

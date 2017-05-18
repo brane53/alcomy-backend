@@ -7,13 +7,11 @@ import * as morgan from 'morgan';
 import {Request, Response, NextFunction, Express} from 'express'
 
 import { Router } from './router';
-import { Database } from "./lib/database";
 
 let app: Express = express();
 let port = 3000;
 
 let router = new Router();
-let database = new Database()
 
 
 class Server {

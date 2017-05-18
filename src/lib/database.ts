@@ -1,8 +1,6 @@
 import * as pg from 'pg';
-import {Pool, PoolConfig} from 'pg'
+import {Pool, PoolConfig, QueryConfig} from 'pg'
 import { CONFIG } from "./configLoader";
-
-
 
 console.log('DB: ', CONFIG.databaseConfig);
 
@@ -25,24 +23,32 @@ const config: PoolConfig = {
 
 // let client = new pg.Client();
 
-export class Database {
+class Database {
   pool: Pool;
 
   constructor() {
-    
+    this.init();
   }
 
-  connect() {
+  private init() {
     this.pool = new pg.Pool(config);
 
     this.pool.on('error', function (err, client) {
       console.error('idle client error', err.message, err.stack);
     });
+  }
 
-    return this.pool.connect()
-      .then((client) => {
-        return client;
-      });
+  query(text: string, values?: any[]): Promise<any> {
+    console.log('query:', text, values);
+    return this.pool.query(text, values);
+  }
+
+  connect(callback) {
+    return this.pool.connect(callback)
   }
 
 }
+
+const database = new Database();
+export default database;
+
