@@ -49,8 +49,14 @@ class ResidentsController {
 
   }
 
-  addResident() {
+  addResident(req, res) {
     Resident.addResident()
+    .then((result) => {
+      res.json(result)
+    })
+    .catch((err) => {
+      console.log(`addResident failed: ${err}`);
+    })
   }
 
 }
