@@ -1,6 +1,6 @@
 import db from '../lib/database';
 
-class Resident {
+class ResidentRepository {
   constructor() {
       
   }
@@ -12,8 +12,10 @@ class Resident {
     });
   }
 
-  addResident() {
-    return db.query("INSERT INTO residents (first_name, last_name) VALUES ('Brane', 'Vrajich')")
+  
+
+  addResident(resident) {
+    return db.query(`INSERT INTO residents (first_name, last_name) VALUES ('Brane', 'Vrajich')`)
     .then((results) => {
       return results;
     })
@@ -21,4 +23,4 @@ class Resident {
 
 }
 
-export default new Resident();
+export default new ResidentRepository();

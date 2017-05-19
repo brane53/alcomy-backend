@@ -1,4 +1,4 @@
-import Resident from '../../../models/residents';
+import ResidentRepo from '../../../models/residents';
 
 
 
@@ -35,7 +35,7 @@ class ResidentsController {
         lastName: "Vrajich"
       },
     ];
-    Resident.getResidents().then((result) => {
+    ResidentRepo.getResidents().then((result) => {
       res.json(result.rows);
 
     })
@@ -50,7 +50,9 @@ class ResidentsController {
   }
 
   addResident(req, res) {
-    Resident.addResident()
+    
+
+    ResidentRepo.addResident()
     .then((result) => {
       res.json(result)
     })
