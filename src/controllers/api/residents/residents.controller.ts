@@ -1,4 +1,4 @@
-import ResidentRepo from '../../../models/residents';
+import ResidentRepo from '../../../models/residentsRepository';
 
 
 
