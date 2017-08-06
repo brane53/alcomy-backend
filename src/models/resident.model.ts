@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 
-class Resident {
+export class Resident {
   id?: number;
   firstName?: string;
   lastName?: string;
@@ -41,7 +41,7 @@ class Resident {
     }
   }
 
-  addQuery() {
+  addQuery(): string {
 
     let resident = this.createResidentObj();
     let columns: string[] = Object.keys(resident);
@@ -58,6 +58,7 @@ class Resident {
       INSERT INTO resident (${columnString}) VALUES (${valuesString})
     `
     console.log(query);
+    return query;
      
   }
 

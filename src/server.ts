@@ -57,9 +57,9 @@ class Server {
     router.load(app, './dist/controllers');
 
     // redirect all others to the index (HTML5 history)
-    // app.all('/*', (req, res) => {
-    //   res.sendFile(__dirname + '/public/index.html');
-    // });
+    app.all('/*', (req, res) => {
+      res.sendFile(__dirname + '/public/index.html');
+    });
   }
 
 }

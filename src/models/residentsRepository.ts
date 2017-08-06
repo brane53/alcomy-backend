@@ -1,4 +1,5 @@
 import db from '../lib/database';
+import { Resident } from './resident.model';
 
 class ResidentRepository {
   constructor() {
@@ -15,7 +16,10 @@ class ResidentRepository {
   
 
   addResident(resident) {
-    return db.query(`INSERT INTO residents (first_name, last_name) VALUES ('Brane', 'Vrajich')`)
+    let res = new Resident(resident);
+    let query = res.addQuery();
+    
+    return db.query(query)
     .then((results) => {
       return results;
     })

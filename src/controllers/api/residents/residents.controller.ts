@@ -1,16 +1,16 @@
 import ResidentRepo from '../../../models/residentsRepository';
-
+import * as moment from 'moment';
 
 
 class ResidentsController {
-  
+
   constructor(router) {
     // baseURL: /api/residents
     router.get('/', this.getResidents);
     router.get('/:id', this.getResident);
     router.post('/', this.addResident)
   }
-  
+
   // gets a list of residents from the residents model
   getResidents(req, res) {
     const residents = [
@@ -39,26 +39,38 @@ class ResidentsController {
       res.json(result.rows);
 
     })
-    .catch((err) => {
-      console.log(`getResidents failed: ${err}`);
-    });
+      .catch((err) => {
+        console.log(`getResidents failed: ${err}`);
+      });
 
   }
-  
+
   getResident(req, res) {
 
   }
 
   addResident(req, res) {
-    
 
-    ResidentRepo.addResident()
-    .then((result) => {
-      res.json(result)
-    })
-    .catch((err) => {
-      console.log(`addResident failed: ${err}`);
-    })
+    let resident = {
+      firstName: 'brane',
+      lastName: 'vrajich',
+      middleName: '',
+      birthDate: moment('1-1-11').format(),
+      gender: 'male',
+      ssn: '610050402',
+      isDnr: true,
+      isAmbulatory: true,
+      isVerbal: true,
+      diet: 'none'
+    }
+
+    ResidentRepo.addResident(resident)
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => {
+        console.log(`addResident failed: ${err}`);
+      })
   }
 
 }

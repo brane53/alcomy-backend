@@ -10,12 +10,12 @@ console.log(`Node environment: ${env}`);
 console.log(`loading config.${env}.ts`);
 
 // return the config for the set environment
-function setConfig() {
-  if (env === 'development') {
+function setConfig(environment: string) {
+  if (environment === 'development') {
     return DEV_CONFIG;
-  } else if(env === 'production') {
-    return PROD_CONFIG
+  } else if(environment === 'production') {
+    return PROD_CONFIG;
   }
 }
 
-export const CONFIG = setConfig();
+export const CONFIG = setConfig(env);

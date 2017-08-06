@@ -1,11 +1,19 @@
 import * as pg from 'pg';
 import {Pool, PoolConfig, QueryConfig} from 'pg'
 import { CONFIG } from "./configLoader";
-
-console.log('DB: ', CONFIG.databaseConfig);
-
+import * as Sequelize from "sequelize";
 
 let dbConfig = CONFIG.databaseConfig;
+
+const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
+  dialect: 'postgres',
+  host: dbConfig.host,
+  port: dbConfig.port,
+  pool: {
+    max: dbConfig.max,
+    idle: dbConfig.idleTimeoutMillis
+  },
+})
 
 const config: PoolConfig = {
   user: dbConfig.user,
@@ -19,9 +27,6 @@ const config: PoolConfig = {
 
 // let connectionString = `postgresql://brane:b468273915@localhost/`
 
-
-
-// let client = new pg.Client();
 
 class Database {
   pool: Pool;
