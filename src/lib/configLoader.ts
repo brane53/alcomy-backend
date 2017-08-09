@@ -1,3 +1,7 @@
+// ConfigLoader loads the correct configuration (Development or 
+// Production) depending on the node environment.
+
+
 import { DEV_CONFIG } from "../config/config.development";
 import { PROD_CONFIG } from "../config/config.production"
 if (!process.env.NODE_ENV) {

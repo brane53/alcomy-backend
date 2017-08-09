@@ -1,5 +1,6 @@
 import * as moment from 'moment';
 
+// With the use of Sequelize this class may be useless
 export class Resident {
   id?: number;
   firstName?: string;
@@ -64,7 +65,7 @@ export class Resident {
 
 }
 
-let resident = new Resident({
+/*  let resident = new Resident({
   firstName: 'brane',
   lastName: 'vrajich',
   middleName: '',
@@ -77,5 +78,8 @@ let resident = new Resident({
   diet: 'none'
 })
 
-resident.addQuery();
+resident.addQuery();  */
+
+
+// Start Sequelize model for resident
 

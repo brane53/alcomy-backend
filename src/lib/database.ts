@@ -5,7 +5,7 @@ import * as Sequelize from "sequelize";
 
 let dbConfig = CONFIG.databaseConfig;
 
-const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
+ export const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
   dialect: 'postgres',
   host: dbConfig.host,
   port: dbConfig.port,
@@ -15,15 +15,15 @@ const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.passw
   },
 })
 
-const config: PoolConfig = {
-  user: dbConfig.user,
-  password: dbConfig.password,
-  database: dbConfig.database,
-  host: dbConfig.host,
-  port: dbConfig.port,
-  max: dbConfig.max, 
-  idleTimeoutMillis: dbConfig.idleTimeoutMillis,
-};
+// const config: PoolConfig = {
+//   user: dbConfig.user,
+//   password: dbConfig.password,
+//   database: dbConfig.database,
+//   host: dbConfig.host,
+//   port: dbConfig.port,
+//   max: dbConfig.max, 
+//   idleTimeoutMillis: dbConfig.idleTimeoutMillis,
+// };
 
 // let connectionString = `postgresql://brane:b468273915@localhost/`
 
@@ -36,7 +36,7 @@ class Database {
   }
 
   private init() {
-    this.pool = new pg.Pool(config);
+    // this.pool = new pg.Pool(config);
 
     this.pool.on('error', function (err, client) {
       console.error('idle client error', err.message, err.stack);

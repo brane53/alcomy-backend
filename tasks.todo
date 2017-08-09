@@ -1,0 +1,4 @@
+Working:
+  Need to export the sequelize database configuration 
+  to access it from model files.
+  Currently creating a model for residents in residents.model.ts
