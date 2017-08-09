@@ -15,10 +15,10 @@ console.log(`loading config.${env}.ts`);
 
 // return the config for the set environment
 function setConfig(environment: string) {
-  if (environment === 'development') {
-    return DEV_CONFIG;
-  } else if(environment === 'production') {
+  if (environment === 'production') {
     return PROD_CONFIG;
+  } else {
+    return DEV_CONFIG;
   }
 }
 

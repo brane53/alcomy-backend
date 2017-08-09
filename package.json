@@ -46,7 +46,7 @@
     "@types/morgan": "^1.7.32",
     "@types/node": "^7.0.13",
     "@types/pg": "^6.1.40",
-    "@types/sequelize": "^4.0.55",
+    "@types/sequelize": "^4.0.67",
     "concurrently": "^3.4.0",
     "nodemon": "^1.11.0",
     "tslint": "^5.1.0"

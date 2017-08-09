@@ -1,7 +1,8 @@
 import * as moment from 'moment';
+import { connection } from '../lib/database';
 
 // With the use of Sequelize this class may be useless
-export class Resident {
+/*export class Resident {
   id?: number;
   firstName?: string;
   lastName?: string;
@@ -63,7 +64,7 @@ export class Resident {
      
   }
 
-}
+}*/
 
 /*  let resident = new Resident({
   firstName: 'brane',
@@ -83,3 +84,42 @@ resident.addQuery();  */
 
 // Start Sequelize model for resident
 
+var Resident = connection.define('resident', {
+  firstName: {
+    type: connection.Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: connection.Sequelize.STRING,
+    allowNull: false
+  },
+  middleName: {
+    type: connection.Sequelize.STRING
+  },
+  gender: {
+    type: connection.Sequelize.STRING,
+    allowNull: false
+  },
+  birthDate: {
+    type: connection.Sequelize.DATEONLY
+  },
+  isAmbulatory: {
+    type: connection.Sequelize.BOOLEAN,
+    defaultValue: true
+  },
+  isVerbal: {
+    type: connection.Sequelize.BOOLEAN,
+    defaultValue: true
+  },
+  isDNR: {
+    type: connection.Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  religion: {
+    type: connection.Sequelize.STRING
+  }
+});
+
+connection.sync().then(()=>{
+  
+});
