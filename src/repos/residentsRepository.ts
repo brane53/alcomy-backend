@@ -1,5 +1,6 @@
 import db from '../lib/database';
-import { Resident } from './resident.model';
+import { Resident } from '../models/resident.model';
+import { connection } from '../lib/database';
 
 class ResidentRepository {
   constructor() {
@@ -16,13 +17,25 @@ class ResidentRepository {
   
 
   addResident(resident) {
-    let res = new Resident(resident);
+
+    
+    return connection.sync().then(()=>{
+      return Resident.create(resident);
+    })
+    .catch((err)=>{
+      console.log('There was an error when syncing to DB')
+    });
+
+
+
+
+    /* let res = new Resident(resident);
     let query = res.addQuery();
     
     return db.query(query)
     .then((results) => {
       return results;
-    })
+    }) */
   }
 
 }

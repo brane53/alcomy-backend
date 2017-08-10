@@ -30,7 +30,7 @@ export const connection = new Sequelize(dbConfig.database, dbConfig.user, dbConf
 // let connectionString = `postgresql://brane:b468273915@localhost/`
 
 
-class Database {
+/* class Database {
   pool: Pool;
 
   constructor() {
@@ -59,4 +59,4 @@ class Database {
 const database = new Database();
 
 export default database;
-
+ */

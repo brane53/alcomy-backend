@@ -1,4 +1,4 @@
-import ResidentRepo from '../../../models/residentsRepository';
+import ResidentRepo from '../../../repos/residentsRepository';
 import * as moment from 'moment';
 
 
@@ -45,13 +45,14 @@ class ResidentsController {
 
   }
 
+
   getResident(req, res) {
 
   }
 
   addResident(req, res) {
 
-    let resident = {
+    const resident = {
       firstName: 'brane',
       lastName: 'vrajich',
       middleName: '',
@@ -60,11 +61,10 @@ class ResidentsController {
       ssn: '610050402',
       isDnr: true,
       isAmbulatory: true,
-      isVerbal: true,
-      diet: 'none'
+      isVerbal: true
     }
-
-    ResidentRepo.addResident(resident)
+    
+    ResidentRepo.addResident(req.body)
       .then((result) => {
         res.json(result)
       })

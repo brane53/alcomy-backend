@@ -84,7 +84,7 @@ resident.addQuery();  */
 
 // Start Sequelize model for resident
 
-var Resident = connection.define('resident', {
+export const Resident = connection.define('resident', {
   firstName: {
     type: connection.Sequelize.STRING,
     allowNull: false
