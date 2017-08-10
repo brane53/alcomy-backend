@@ -1,4 +1,3 @@
-import * as moment from 'moment';
 import { connection } from '../lib/database';
 
 // With the use of Sequelize this class may be useless
