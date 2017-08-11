@@ -1,5 +1,15 @@
-import { connection } from '../lib/database';
+import { db } from '../lib/database';
 
-export const Facility = connection.define('facility', {
-
+export const Facility = db.define('facility', {
+  name: {
+    type: db.Sequelize.STRING,
+    allowNull: false
+  },
+  displayName: {
+    type: db.Sequelize.STRING
+  },
+  facilityNumber: {
+    type: db.Sequelize.INTEGER
+  },
+  
 });

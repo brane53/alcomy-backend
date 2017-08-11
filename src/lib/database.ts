@@ -5,7 +5,7 @@ import * as Sequelize from "sequelize";
 
 let dbConfig = CONFIG.databaseConfig;
 
-export const connection = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
+export const db = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
   dialect: 'postgres',
   host: dbConfig.host,
   port: dbConfig.port,

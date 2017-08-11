@@ -1,41 +1,28 @@
-import db from '../lib/database';
-import { Resident } from '../models/resident.model';
-import { connection } from '../lib/database';
+import { ResidentModel } from '../models/resident.model';
+import { db } from '../lib/database';
+
 
 class ResidentRepository {
   constructor() {
       
   }
 
-  getResidents() {
-    return db.query('SELECT id, first_name, last_name FROM residents')
-    .then((results) => {
-      return results;
+
+  // Gets all residents that below from a given facility
+  public getResidents(faciliyId?: number, query?) {
+    return ResidentModel.findAll({
+      attributes: ['firstName', 'lastName', 'birthDate'],
+      limit: 2,
+      offset: 4
     });
   }
 
   
+  
 
-  addResident(resident) {
-
-    
-    return connection.sync().then(()=>{
-      return Resident.create(resident);
-    })
-    .catch((err)=>{
-      console.log('There was an error when syncing to DB')
-    });
-
-
-
-
-    /* let res = new Resident(resident);
-    let query = res.addQuery();
-    
-    return db.query(query)
-    .then((results) => {
-      return results;
-    }) */
+  // Creates a single resident in the database
+  public addResident(resident) {
+    return ResidentModel.create(resident);
   }
 
 }

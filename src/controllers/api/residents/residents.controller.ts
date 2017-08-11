@@ -35,8 +35,9 @@ class ResidentsController {
         lastName: "Vrajich"
       },
     ];
+
     ResidentRepo.getResidents().then((result) => {
-      res.json(result.rows);
+      res.json(result);
 
     })
       .catch((err) => {
@@ -45,14 +46,14 @@ class ResidentsController {
 
   }
 
-
+  // get a single resident record
   getResident(req, res) {
 
   }
 
   addResident(req, res) {
 
-    const resident = {
+    /* const resident = {
       firstName: 'brane',
       lastName: 'vrajich',
       middleName: '',
@@ -62,7 +63,7 @@ class ResidentsController {
       isDnr: true,
       isAmbulatory: true,
       isVerbal: true
-    }
+    } */
     
     ResidentRepo.addResident(req.body)
       .then((result) => {
@@ -76,3 +77,6 @@ class ResidentsController {
 }
 
 module.exports = ResidentsController;
+
+
+"brane"
