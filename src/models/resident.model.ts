@@ -37,6 +37,9 @@ export const ResidentModel = db.define('resident', {
   birthDate: {
     type: db.Sequelize.DATEONLY
   },
+  ssn: {
+    type: db.Sequelize.STRING
+  },
   isAmbulatory: {
     type: db.Sequelize.BOOLEAN,
     defaultValue: true
