@@ -8,6 +8,12 @@ import {Request, Response, NextFunction, Express} from 'express'
 
 import { Router } from './router';
 
+
+// This is the main bootstrap file for the server
+
+
+
+
 let app: Express = express();
 let port = 3000;
 
@@ -52,6 +58,8 @@ class Server {
     });
   }
 
+  // uses the router.load to create routes from the file structure
+  // of the controllers.
   initRoutes() {
 
     router.load(app, './dist/controllers');

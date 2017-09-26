@@ -8,6 +8,9 @@ export const PROD_CONFIG = {
     max: 10,                          // max number of clients in the pool
     min: 1,                           // min number of clients in the pool
     idle: 30000                       // how long a client is allowed to remain idle before being closed (in milliseconds)
+  },
+  authConfig: {
+    secret: 'cuteLittleKittens'
   }
 };
 

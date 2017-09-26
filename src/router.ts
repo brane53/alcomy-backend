@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as express from 'express';
 import * as path from 'path';
+import { Express } from 'express';
 
 
 export class Router {
@@ -15,7 +16,7 @@ export class Router {
 
   // Creates base routes and routers defined by the folder structure.  
   // Called once during initial server startup.
-  load(app, folderName: string) {
+  load(app: Express, folderName: string) {
 
     if (!this.startFolder) {
       this.startFolder = path.basename(folderName);
