@@ -1,14 +1,15 @@
 import ResidentRepo from '../../../repos/residentsRepository';
 import * as moment from 'moment';
+import {Router} from 'express';
 
 
 class ResidentsController {
 
-  constructor(router) {
+  constructor(router: Router) {
     // baseURL: /api/residents
     router.get('/', this.getResidents);
     router.get('/:id', this.getResident);
-    router.post('/', this.addResident)
+    router.post('/', this.addResident);
   }
 
   // gets a list of residents from the residents model

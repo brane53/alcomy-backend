@@ -1,4 +1,4 @@
-import { ResidentModel } from '../models/resident.model';
+import { Resident } from '../models/resident.model';
 import { db } from '../lib/database';
 
 
@@ -13,7 +13,7 @@ class ResidentRepository {
 
     // 
 
-    return ResidentModel.findAll({
+    return Resident.findAll({
       
       limit: 20,
       offset: 4
@@ -25,7 +25,7 @@ class ResidentRepository {
 
   // Creates a single resident in the database
   public addResident(resident) {
-    return ResidentModel.create(resident);
+    return Resident.create(resident);
   }
 
 }

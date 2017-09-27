@@ -10,7 +10,8 @@ export const DEV_CONFIG = {
     idle: 30000               // how long a client is allowed to remain idle before being closed (in milliseconds)
   },
   authConfig: {
-    secret: 'cuteLittleKittens'
+    secret: 'cuteLittleKittens',
+    tokenExpiration: 60 * 5
   }
 };
 
