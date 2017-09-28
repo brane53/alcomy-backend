@@ -1,5 +1,7 @@
 import { db } from '../lib/database';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt-nodejs';
+
+
 
 export const User = db.define('user', {
   firstName: {
@@ -13,18 +15,30 @@ export const User = db.define('user', {
     allowNull: false
   },
   password: {
-    type: db.Sequelize.STRING
-  }
+    type: db.Sequelize.STRING,
+    set(val) {
 
-}, 
-{
-  setterMethods: {
-    password(val) {
-      this.setDataValue('password', ()=>{
-        return
-      })()
+      let SALT_ROUNDS = 10;
+      
+      bcrypt.genSalt(SALT_ROUNDS, (err, salt) => {
+        if(err) {
+          throw new Error('There was an error when creating salt' + err)
+        }
+
+        bcrypt.hash(val, salt, null, (err, hash) => {
+          if(err) {
+            throw new Error('There was an error when hashing password' + err);
+          }
+          
+          this.setDataValue('password', hash);
+
+
+        })
+
+      });
     }
   }
+
 }
 
 );
