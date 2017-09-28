@@ -1,7 +1,12 @@
 import { db } from '../lib/database';
 import * as bcrypt from 'bcrypt-nodejs';
 
-
+export interface IUser {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+}
 
 export const User = db.define('user', {
   firstName: {

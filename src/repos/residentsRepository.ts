@@ -9,14 +9,13 @@ class ResidentRepository {
 
 
   // Gets all residents that below from a given facility
-  public getResidents(faciliyId?: number, query?) {
-
-    // 
-
+  public getResidents(facilityId?: number, query?) {
+ 
     return Resident.findAll({
-      
+      where: { facilityId: facilityId },
       limit: 20,
-      offset: 4
+      offset: 4,
+      raw: true
     });
   }
 
