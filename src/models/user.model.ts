@@ -4,11 +4,9 @@ import * as bcrypt from 'bcrypt-nodejs';
 
 
 export const User = db.define('user', {
-  firstName: {
-    type: db.Sequelize.STRING
-  },
-  lastName: {
-    type: db.Sequelize.STRING
+  username: {
+    type: db.Sequelize.STRING,
+    allowNull: false
   },
   email: {
     type: db.Sequelize.STRING,
@@ -16,10 +14,11 @@ export const User = db.define('user', {
   },
   password: {
     type: db.Sequelize.STRING,
+    allowNull: false,
     set(val) {
 
       let SALT_ROUNDS = 10;
-      
+
       bcrypt.genSalt(SALT_ROUNDS, (err, salt) => {
         if(err) {
           throw new Error('There was an error when creating salt' + err)
@@ -39,6 +38,15 @@ export const User = db.define('user', {
     }
   }
 
+}, {
+  defaultScope: {
+    where: {
+      status: 'active'
+    }
+  },
+  scopes: {
+    
+  }
 }
 
 );

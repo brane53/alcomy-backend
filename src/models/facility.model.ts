@@ -11,5 +11,8 @@ export const Facility = db.define('facility', {
   facilityNumber: {
     type: db.Sequelize.INTEGER
   },
+  capacity: {
+    type: db.Sequelize.INTEGER
+  }
   
 });

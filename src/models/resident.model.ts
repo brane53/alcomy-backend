@@ -42,19 +42,28 @@ export const Resident = db.define('resident', {
   },
   isAmbulatory: {
     type: db.Sequelize.BOOLEAN,
+    allowNull: false,
     defaultValue: true
   },
   isVerbal: {
     type: db.Sequelize.BOOLEAN,
-    defaultValue: true,
-    allowNull: false
+    allowNull: false,
+    defaultValue: true
   },
   isDNR: {
     type: db.Sequelize.BOOLEAN,
-    defaultValue: false,
-    allowNull: false
+    allowNull: false,
+    defaultValue: false
   },
   religion: {
     type: db.Sequelize.STRING
+  },
+  status: {
+    type: db.Sequelize.STRING,
+    allowNull: false,
+    defaultValue: 'active'
+  },
+  notes: {
+    type: db.Sequelize.TEXT
   }
 });
