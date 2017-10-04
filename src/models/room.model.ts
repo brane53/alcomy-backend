@@ -18,3 +18,7 @@ export const Room = db.define('room', {
     type: db.Sequelize.INTEGER
   }
 });
+
+// room hasMany resident
+// resident belongsTo room
+
