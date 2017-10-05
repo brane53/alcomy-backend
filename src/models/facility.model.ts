@@ -1,18 +1,18 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
-export const Facility = db.define('facility', {
+export const Facility = sequelize.define('facility', {
   name: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   displayName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   facilityNumber: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   capacity: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   }
   
 });

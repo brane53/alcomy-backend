@@ -5,8 +5,10 @@ import * as errorhandler from 'errorhandler';
 import * as csrf from 'csurf';
 import * as morgan from 'morgan';
 import {Request, Response, NextFunction, Express} from 'express'
-
 import { Router } from './router';
+
+import { sequelize } from './lib/database';
+import models from './models';
 
 
 // This is the main bootstrap file for the server
@@ -24,13 +26,17 @@ class Server {
 
   constructor() {
     this.initExpressMiddleWare();
-    this.initRoutes();
+    //this.initRoutes();
     this.start();
   }
 
   start() {
-    app.listen(port, (err) => {
-      console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, port);
+    sequelize.sync().then(() => {
+
+      app.listen(port, (err) => {
+        console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, port);
+      });
+
     });
   }
 

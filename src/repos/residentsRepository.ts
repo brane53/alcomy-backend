@@ -1,5 +1,5 @@
 import { Resident } from '../models/resident.model';
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
 
 class ResidentRepository {

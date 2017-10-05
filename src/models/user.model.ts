@@ -1,4 +1,4 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 import * as bcrypt from 'bcrypt-nodejs';
 
 export interface IUser {
@@ -8,17 +8,17 @@ export interface IUser {
   password?: string;
 }
 
-export const User = db.define('user', {
+export const User = sequelize.define('user', {
   username: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   email: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   password: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false,
     set(val) {
 

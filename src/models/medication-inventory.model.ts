@@ -1,32 +1,32 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
-export const MedicationInventoryItem = db.define('medicationInventoryItem', {
+export const MedicationInventoryItem = sequelize.define('medicationInventoryItem', {
   container: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   startQuantity: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   quantity: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   startAt: {
-    type: db.Sequelize.DATE
+    type: sequelize.Sequelize.DATE
   },
   endAt: {
-    type: db.Sequelize.DATE
+    type: sequelize.Sequelize.DATE
   },
   fillDate: {
-    type: db.Sequelize.DATEONLY
+    type: sequelize.Sequelize.DATEONLY
   },
   expireDate: {
-    type: db.Sequelize.DATEONLY
+    type: sequelize.Sequelize.DATEONLY
   },
   receivedAt: {
-    type: db.Sequelize.DATE
+    type: sequelize.Sequelize.DATE
   },
   // receivedBy
   rxNumber: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   }
 });

@@ -1,13 +1,13 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
-export const PhoneNumber = db.define('phoneNumber', {
+export const PhoneNumber = sequelize.define('phoneNumber', {
   description: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   number: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   type: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   }
 });

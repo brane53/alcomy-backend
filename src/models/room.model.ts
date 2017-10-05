@@ -1,4 +1,4 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
 class RoomModel {
   id: number
@@ -7,15 +7,15 @@ class RoomModel {
   capacity: number;
 }
 
-export const Room = db.define('room', {
+export const Room = sequelize.define('room', {
   roomNumber: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   description: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   capacity: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   }
 });
 

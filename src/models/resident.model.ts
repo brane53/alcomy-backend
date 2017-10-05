@@ -1,4 +1,4 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
 // With the use of Sequelize this class may be useless
 export class ResidentModel {
@@ -18,52 +18,56 @@ export class ResidentModel {
 
 // Start Sequelize model for resident
 
-export const Resident = db.define('resident', {
+export let Resident = sequelize.define('resident', {
   firstName: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   lastName: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   middleName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   gender: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   birthDate: {
-    type: db.Sequelize.DATEONLY
+    type: sequelize.Sequelize.DATEONLY
   },
   ssn: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   isAmbulatory: {
-    type: db.Sequelize.BOOLEAN,
+    type: sequelize.Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: true
   },
   isVerbal: {
-    type: db.Sequelize.BOOLEAN,
+    type: sequelize.Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: true
   },
   isDNR: {
-    type: db.Sequelize.BOOLEAN,
+    type: sequelize.Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: false
   },
   religion: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   status: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false,
     defaultValue: 'active'
   },
   notes: {
-    type: db.Sequelize.TEXT
+    type: sequelize.Sequelize.TEXT
   }
 });
+
+Resident.associate = (models) => {
+
+};

@@ -1,39 +1,39 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
-export const Empoyee = db.define('employee', {
+export const Employee = sequelize.define('employee', {
   firstName: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   middleName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   lastName: {
-    type: db.Sequelize.STRING,
+    type: sequelize.Sequelize.STRING,
     allowNull: false
   },
   gender: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   birthDate: {
-    type: db.Sequelize.DATEONLY
+    type: sequelize.Sequelize.DATEONLY
   },
   ssn: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   steetAddress: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   apartmentId: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   city: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   state: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   zipcode: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   }
 });

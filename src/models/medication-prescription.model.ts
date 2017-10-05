@@ -1,18 +1,18 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 
-export const Prescription = db.define('prescription', {
+export const Prescription = sequelize.define('prescription', {
   // prescriber
   // resident
   medicationName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   dosageAmount: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   dosageMeasurement: {                // e.g. milliliters, milligrams. either this or dosage form will be filled out
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   dosageForm: {
-    type: db.Sequelize.STRING         // either this or dosage measurement will be filled in
+    type: sequelize.Sequelize.STRING         // either this or dosage measurement will be filled in
   }
 });

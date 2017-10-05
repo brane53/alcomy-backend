@@ -1,66 +1,66 @@
-import { db } from '../lib/database';
+import { sequelize } from '../lib/database';
 import * as Sequelize from 'sequelize';
 
-export const Medication = db.define('medication', {
+export const Medication = sequelize.define('medication', {
   genericName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   brandName: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   description: {
-    type: db.Sequelize.TEXT
+    type: sequelize.Sequelize.TEXT
   },
   class: {                             // drug classifications
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   strengthAmount: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   strengthMeasurement: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   form: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   imageUrl: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   instructions: {
-    type: db.Sequelize.TEXT
+    type: sequelize.Sequelize.TEXT
   },
   status: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   notes: {
-    type: db.Sequelize.TEXT
+    type: sequelize.Sequelize.TEXT
   },
   startAt: {
-    type: db.Sequelize.DATE
+    type: sequelize.Sequelize.DATE
   },
   endAt: {
-    type: db.Sequelize.DATE
+    type: sequelize.Sequelize.DATE
   },
   route: {
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   calculationType: {                // indicates whether calculations are based on measurement or form
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   dosageAmount: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   dosageMeasurement: {                // e.g. milliliters, milligrams. either this or dosage form will be filled out
-    type: db.Sequelize.STRING
+    type: sequelize.Sequelize.STRING
   },
   dosageForm: {
-    type: db.Sequelize.STRING         // either this or dosage measurement will be filled in
+    type: sequelize.Sequelize.STRING         // either this or dosage measurement will be filled in
   },
   refills: {
-    type: db.Sequelize.INTEGER
+    type: sequelize.Sequelize.INTEGER
   },
   isNarcotic: {
-    type: db.Sequelize.BOOLEAN
+    type: sequelize.Sequelize.BOOLEAN
   },
   // schedule
   // createdBy
@@ -74,3 +74,8 @@ export const Medication = db.define('medication', {
    display messages to the user conditionally. e.g. Display a message
    saying, "Resident hasn't had a bowl movement in 3 days. Do not give." We could
    display a little warning icon on the medication task */
+
+
+   Medication.associate = (models) => {
+
+   };
