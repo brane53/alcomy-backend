@@ -69,5 +69,7 @@ export let Resident = sequelize.define('resident', {
 });
 
 Resident.associate = (models) => {
-
+  Resident.belongsTo(models.Facility)
+  Resident.belongsToMany(models.Contact, {through: 'residentContacts'});
+  Resident.belongsTo(models.Room);
 };

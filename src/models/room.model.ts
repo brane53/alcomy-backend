@@ -22,3 +22,6 @@ export const Room = sequelize.define('room', {
 // room hasMany resident
 // resident belongsTo room
 
+Room.associate = (models) => {
+  Room.hasMany(models.Resident);
+};

@@ -37,3 +37,8 @@ export const Employee = sequelize.define('employee', {
     type: sequelize.Sequelize.INTEGER
   }
 });
+
+Employee.associate = (models) => {
+  Employee.hasMany(models.Address);
+  Employee.belongsToMany(models.Facility, {through: 'facilityEmployees'});
+};

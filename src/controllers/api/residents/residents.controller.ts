@@ -54,17 +54,7 @@ class ResidentsController {
 
   addResident(req, res) {
 
-    /* const resident = {
-      firstName: 'brane',
-      lastName: 'vrajich',
-      middleName: '',
-      birthDate: moment('1-1-11').format(),
-      gender: 'male',
-      ssn: '610050402',
-      isDnr: true,
-      isAmbulatory: true,
-      isVerbal: true
-    } */
+    const resident = 
     
     ResidentRepo.addResident(req.body)
       .then((result) => {
@@ -80,4 +70,3 @@ class ResidentsController {
 module.exports = ResidentsController;
 
 
-"brane"

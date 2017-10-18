@@ -52,6 +52,8 @@ export const User = sequelize.define('user', {
   scopes: {
     
   }
-}
+});
 
-);
+User.associate = (models) => {
+  User.belongsTo(models.Employee);
+};

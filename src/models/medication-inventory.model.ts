@@ -30,3 +30,7 @@ export const MedicationInventoryItem = sequelize.define('medicationInventoryItem
     type: sequelize.Sequelize.STRING
   }
 });
+
+MedicationInventoryItem.associate = (models) => {
+
+};

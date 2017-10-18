@@ -13,6 +13,25 @@ export const Facility = sequelize.define('facility', {
   },
   capacity: {
     type: sequelize.Sequelize.INTEGER
+  },
+  addressLine1: {
+    type: sequelize.Sequelize.STRING
+  },
+  addressLine2: {
+    type: sequelize.Sequelize.STRING
+  },
+  city: {
+    type: sequelize.Sequelize.STRING
+  },
+  stateOrProvince: {
+    type: sequelize.Sequelize.STRING
+  },
+  postalCode: {
+    type: sequelize.Sequelize.STRING
   }
-  
 });
+
+Facility.associate = (models) => {
+  Facility.hasMany(models.Resident);
+  Facility.belongsToMany(models.Employee, {through: 'facilityEmployees'});
+};

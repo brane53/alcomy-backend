@@ -1,5 +1,6 @@
 import { Resident } from '../models/resident.model';
 import { sequelize } from '../lib/database';
+import { Facility } from '../models/facility.model';
 
 
 class ResidentRepository {
@@ -23,7 +24,8 @@ class ResidentRepository {
   
 
   // Creates a single resident in the database
-  public addResident(resident) {
+  public addResident(facilityId, resident) {
+    Facility.findById(facilityId, {attributes: ['id']})
     return Resident.create(resident);
   }
 

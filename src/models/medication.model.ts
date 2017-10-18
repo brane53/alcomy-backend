@@ -1,5 +1,8 @@
 import { sequelize } from '../lib/database';
 import * as Sequelize from 'sequelize';
+import { Model } from 'sequelize';
+import { Prescription } from './medication-prescription.model';
+import { MedicationInventoryItem } from './medication-inventory.model';
 
 export const Medication = sequelize.define('medication', {
   genericName: {
@@ -61,7 +64,7 @@ export const Medication = sequelize.define('medication', {
   },
   isNarcotic: {
     type: sequelize.Sequelize.BOOLEAN
-  },
+  }
   // schedule
   // createdBy
   // script
@@ -76,6 +79,7 @@ export const Medication = sequelize.define('medication', {
    display a little warning icon on the medication task */
 
 
-   Medication.associate = (models) => {
-
-   };
+Medication.associate = (models) => {
+  Medication.belongsTo(Prescription);
+  Medication.hasMany(MedicationInventoryItem);
+};

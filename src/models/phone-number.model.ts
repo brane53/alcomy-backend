@@ -11,3 +11,7 @@ export const PhoneNumber = sequelize.define('phoneNumber', {
     type: sequelize.Sequelize.STRING
   }
 });
+
+PhoneNumber.associate = (models) => {
+
+};

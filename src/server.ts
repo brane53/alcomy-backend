@@ -7,7 +7,7 @@ import * as morgan from 'morgan';
 import {Request, Response, NextFunction, Express} from 'express'
 import { Router } from './router';
 
-import { sequelize } from './lib/database';
+import db from './models';
 import models from './models';
 
 
@@ -26,12 +26,12 @@ class Server {
 
   constructor() {
     this.initExpressMiddleWare();
-    //this.initRoutes();
+    this.initRoutes();
     this.start();
   }
 
   start() {
-    sequelize.sync().then(() => {
+    db.sequelize.sync({force: true}).then(() => {
 
       app.listen(port, (err) => {
         console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, port);

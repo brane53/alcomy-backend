@@ -11,6 +11,10 @@ export const MedicationTask = sequelize.define('medicationTask', {
     type: sequelize.Sequelize.DATE
   },
   medCartNumber: {
-    type: sequelize.Sequelize.TYPE
+    type: sequelize.Sequelize.STRING
   }
 });
+
+MedicationTask.associate = (models) => {
+
+};

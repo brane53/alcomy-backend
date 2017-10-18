@@ -16,3 +16,7 @@ export const Prescription = sequelize.define('prescription', {
     type: sequelize.Sequelize.STRING         // either this or dosage measurement will be filled in
   }
 });
+
+Prescription.associate = (models) => {
+  
+};

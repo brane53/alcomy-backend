@@ -1,3 +1,4 @@
+import { sequelize } from '../lib/database';
 import { User } from './user.model';
 import { Employee } from './employee.model';
 import { Facility } from './facility.model';
@@ -8,6 +9,9 @@ import { Prescription } from './medication-prescription.model';
 import { MedicationTask } from './medication-task.model';
 import { PhoneNumber } from './phone-number.model';
 import { Room } from './room.model';
+import { Address } from './address.model';
+import { Specialist } from './specialist.model';
+import { Contact } from './contact.model';
 
 
 const db = {
@@ -20,7 +24,10 @@ const db = {
   Prescription: Prescription,
   MedicationTask: MedicationTask,
   PhoneNumber: PhoneNumber,
-  Room: Room
+  Room: Room,
+  Address: Address,
+  Specialist: Specialist,
+  Contact: Contact
 }
 
 Object.keys(db).forEach((modelName) => {
@@ -29,4 +36,7 @@ Object.keys(db).forEach((modelName) => {
   }
 })
 
+db.sequelize = sequelize;
+
+console.log('run db')
 export default db;
