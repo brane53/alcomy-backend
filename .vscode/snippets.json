@@ -1,0 +1,12 @@
+// JSON Language Snippets
+
+"API Blueprint": {
+  "prefix": "api",
+  "body": [
+    "\"${1:METHOD} /${2:URL}\": {" +
+			"	\"desc\": \"$3\"," +
+			"	\"response\": \"${4:CODE} application/json\"," +
+			"	\"data\": $5"
+			"}"
+  ]
+}
