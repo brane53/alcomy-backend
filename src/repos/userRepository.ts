@@ -31,15 +31,16 @@ class UserRepository {
 
   // Not finished
   checkUserPassword(id: number, password) {
-    User.findById(id, {attributes: ['password'], raw: true}).then((user: IUser) => {
-      let passwordHash;
-      bcrypt.compare(password, passwordHash, (err, isSame) => {
-        if(err) {
-          throw new Error('Incorrect Password');
-        }
-        return isSame;
-      })
-    }
+    User.findById(id, {attributes: ['password'], raw: true})
+      .then((user: IUser) => {
+        let passwordHash;
+        bcrypt.compare(password, passwordHash, (err, isSame) => {
+          if(err) {
+            throw new Error('Incorrect Password');
+          }
+          return isSame;
+        });
+      });
   }
 
 }

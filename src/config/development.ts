@@ -1,5 +1,6 @@
-export const DEV_CONFIG = {
+export const CONFIG = {
   port: process.env.PORT || 3000,
+  logger: true,
   database: {
     user: "brane",            // user for the database
     password: "b468273915",   // password to access the database

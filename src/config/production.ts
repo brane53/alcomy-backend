@@ -1,5 +1,6 @@
-export const PROD_CONFIG = {
+export const CONFIG = {
   port: process.env.PORT,
+  logger: false,
   database: {
     user: "brane",                    // user for the database
     password: process.env.ALCOMY_DB_SECRET,           // password to access the database

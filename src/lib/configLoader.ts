@@ -2,9 +2,9 @@
 // Production) depending on the node environment.
 
 
-import { DEV_CONFIG } from "../config/development";
-import { TEST_CONFIG } from "../config/testing";
-import { PROD_CONFIG } from "../config/production";
+import { CONFIG as DEV_CONFIG } from "../config/development";
+import { CONFIG as TEST_CONFIG } from "../config/testing";
+import { CONFIG as PROD_CONFIG } from "../config/production";
 
 const env = process.env.NODE_ENV || 'development';
 

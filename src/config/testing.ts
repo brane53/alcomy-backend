@@ -1,5 +1,6 @@
-export const TEST_CONFIG = {
+export const CONFIG = {
   port: process.env.PORT || 3001,
+  logger: true,
   database: {
     user: "brane",            // user for the database
     password: process.env.ALCOMY_DB_SECRET,   // password to access the database
