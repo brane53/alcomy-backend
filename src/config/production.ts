@@ -11,7 +11,7 @@ export const PROD_CONFIG = {
     idle: 30000                       // how long a client is allowed to remain idle before being closed (in milliseconds)
   },
   authConfig: {
-    jwtSecret: process.env.ALCOMY_JWT _SECRET,
+    jwtSecret: process.env.ALCOMY_JWT_SECRET,
     tokenExpiration: 60 * 15
   }
 };
