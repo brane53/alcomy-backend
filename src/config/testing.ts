@@ -1,8 +1,9 @@
-export const DEV_CONFIG = {
-  databaseConfig: {
+export const TEST_CONFIG = {
+  port: process.env.PORT || 3001,
+  database: {
     user: "brane",            // user for the database
-    password: "b468273915",   // password to access the database
-    database: "alcomy-dev",   // name of the database
+    password: process.env.ALCOMY_DB_SECRET,   // password to access the database
+    database: "alcomy-test",   // name of the database
     host: "localhost",        // Server hosting the postgres database
     port: 5433,               // port the database is running on
     max: 10,                  // max number of clients in the pool
@@ -10,7 +11,7 @@ export const DEV_CONFIG = {
     idle: 30000               // how long a client is allowed to remain idle before being closed (in milliseconds)
   },
   authConfig: {
-    secret: 'cuteLittleKittens',
+    jwtSecret: 'cuteLittleKittens',
     tokenExpiration: 60 * 5
   }
 };

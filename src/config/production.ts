@@ -1,7 +1,8 @@
 export const PROD_CONFIG = {
-  databaseConfig: {
+  port: process.env.PORT,
+  database: {
     user: "brane",                    // user for the database
-    password: "b468273915",           // password to access the database
+    password: process.env.ALCOMY_DB_SECRET,           // password to access the database
     database: "alcomy",               // name of the database
     host: "https://www.alcomy.com",   // Server hosting the postgres database
     port: 8080,                       // port the database is running on
@@ -10,7 +11,7 @@ export const PROD_CONFIG = {
     idle: 30000                       // how long a client is allowed to remain idle before being closed (in milliseconds)
   },
   authConfig: {
-    secret: 'cuteLittleKittens',
+    jwtSecret: process.env.ALCOMY_JWT _SECRET,
     tokenExpiration: 60 * 15
   }
 };

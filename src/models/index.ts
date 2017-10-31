@@ -30,6 +30,7 @@ const db = {
   Contact: Contact
 }
 
+// 
 Object.keys(db).forEach((modelName) => {
   if ('associate' in db[modelName]) {
     db[modelName].associate(db);

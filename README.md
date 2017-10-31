@@ -1,3 +1,10 @@
+SETUP
+
+1. clone the repository
+2. install dependencies by running "npm install"
+3. 
+
+
 
 FOLDER STRUCTURE
 
