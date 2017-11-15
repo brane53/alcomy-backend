@@ -1,24 +1,69 @@
 {
-  "RESIDENTS": {
-    "GET /residents": {
-      "desc": "returns all residents within a certain facility given the facility id",
-      "response": "200 application/json",
-      "data": [{}, {}, {}]
-    },
-    "GET /residents/:id": {
-      "desc": "returns one resident represented by it's id",
+  "ACCOUNTS": {
+    "GET /:id": {
+      "desc": "returns an account object for certain account given it's id",
       "response": "200 application/json",
       "data": {}
     },
-    "POST /residents": {
-      "desc": "creates and returns and new resident to a facility using the facility id and posted object",
+    "POST /accounts": {
+      "desc": "creates and returns and new account using the posted object",
       "response": "201 application/json",
       "data": {}
     },
-    "PUT /residents/:id": {
-      "desc": "update and return the matching resident using the posted object",
+    "PUT /:id": {
+      "desc": "update and return the matching account using the posted object",
       "response": "200 application/json",
       "data": {}
+    },
+
+    // Facility Routes
+    "FACILITIES": {
+      "GET /facilities": {
+        "desc": "returns all facilities under a certain account given the account id",
+        "response": "200 application/json",
+        "data": [
+          {}
+        ]
+      },
+      "GET /facilities/:id": {
+        "desc": "return one facility represented by it's id",
+        "response": "200 application/json",
+        "data": {}
+      },
+      "POST /facilities": {
+        "desc": "creates and returns and new facility to an account using the account id and posted object",
+        "response": "201 application/json",
+        "data": {}
+      },
+      "PUT /facilities/:id": {
+        "desc": "update and return the matching facility using the posted object",
+        "response": "200 application/json",
+        "data": {}
+      },
+      
+      // Resident Routes
+      "RESIDENTS": {
+        "GET /residents": {
+          "desc": "returns all residents within a certain facility given the facility id",
+          "response": "200 application/json",
+          "data": [{}]
+        },
+        "GET /residents/:id": {
+          "desc": "returns one resident represented by it's id",
+          "response": "200 application/json",
+          "data": {}
+        },
+        "POST /residents": {
+          "desc": "creates and returns and new resident to a facility using the facility id and posted object",
+          "response": "201 application/json",
+          "data": {}
+        },
+        "PUT /residents/:id": {
+          "desc": "update and return the matching resident using the posted object",
+          "response": "200 application/json",
+          "data": {}
+        }
+      }
     }
   }
 }
