@@ -1,4 +1,4 @@
-
+// This file is intended to seed a testing database, but currently it doesn't do anything.
 
 class DbSeeder {
   constructor() {
@@ -7,12 +7,7 @@ class DbSeeder {
 
   seed() {
     console.log('Seeding data...');
-    let residents = [
-      {
-        firstName: 'Brane',
-        lastName: 'Vrajich',
-      }
-    ]
+    
   }
 
 

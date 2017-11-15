@@ -9,6 +9,7 @@ import { Router } from './router';
 
 import db from './models';
 import models from './models';
+import { CONFIG } from './lib/configLoader';
 
 
 // This is the main bootstrap file for the server
@@ -17,7 +18,7 @@ import models from './models';
 
 
 let app: Express = express();
-let port = 3000;
+let port = CONFIG.port;
 
 let router = new Router();
 
