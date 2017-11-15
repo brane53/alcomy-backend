@@ -1,0 +1,24 @@
+{
+  "RESIDENTS": {
+    "GET /residents": {
+      "desc": "returns all residents within a certain facility given the facility id",
+      "response": "200 application/json",
+      "data": [{}, {}, {}]
+    },
+    "GET /residents/:id": {
+      "desc": "returns one resident represented by it's id",
+      "response": "200 application/json",
+      "data": {}
+    },
+    "POST /residents": {
+      "desc": "creates and returns and new resident to a facility using the facility id and posted object",
+      "response": "201 application/json",
+      "data": {}
+    },
+    "PUT /residents/:id": {
+      "desc": "update and return the matching resident using the posted object",
+      "response": "200 application/json",
+      "data": {}
+    }
+  }
+}
