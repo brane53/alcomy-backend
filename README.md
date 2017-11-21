@@ -2,7 +2,8 @@ SETUP
 
 1. clone the repository
 2. install dependencies by running "npm install"
-3. 
+3. install postrgres and create a database with the configurations in src > config > development
+4. run "npm start"
 
 
 
