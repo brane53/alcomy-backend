@@ -10,7 +10,8 @@
     "start": "concurrently \"npm run compile:ts\" \"npm run start:dev\"",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
-    "version:patch": "npm version patch"
+    "version:patch": "npm version patch",
+    "postinstall": "npm run compile:ts"
   },
   "repository": {
     "type": "git",
