@@ -38,7 +38,7 @@ class ResidentsController {
     ];
 
     ResidentRepo.getResidents().then((result) => {
-      res.json(result);
+      res.json(residents);
 
     })
       .catch((err) => {
@@ -54,9 +54,7 @@ class ResidentsController {
 
   addResident(req, res) {
 
-    const resident = 
-    
-    ResidentRepo.addResident(req.body)
+    const resident = ResidentRepo.addResident(req.body)
       .then((result) => {
         res.json(result)
       })
