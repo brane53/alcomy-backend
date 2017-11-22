@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const Prescription = sequelize.define('prescription', {
+export const Prescription: any = sequelize.define('prescription', {
   // prescriber
   // resident
   medicationName: {

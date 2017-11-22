@@ -47,7 +47,7 @@ class AuthController {
   }
 
   private generateToken(user) {
-    return jwt.sign(user, CONFIG.authConfig.secret, {
+    return jwt.sign(user, CONFIG.authConfig.jwtSecret, {
       expiresIn: CONFIG.authConfig.tokenExpiration
     });
   }

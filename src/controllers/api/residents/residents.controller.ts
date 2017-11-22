@@ -54,7 +54,7 @@ class ResidentsController {
 
   addResident(req, res) {
 
-    const resident = ResidentRepo.addResident(req.body)
+    const resident = ResidentRepo.addResident("someFacilityID", req.body)
       .then((result) => {
         res.json(result)
       })

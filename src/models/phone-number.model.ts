@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const PhoneNumber = sequelize.define('phoneNumber', {
+export const PhoneNumber: any = sequelize.define('phoneNumber', {
   description: {
     type: sequelize.Sequelize.STRING
   },

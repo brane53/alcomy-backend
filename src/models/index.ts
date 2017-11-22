@@ -14,7 +14,7 @@ import { Specialist } from './specialist.model';
 import { Contact } from './contact.model';
 
 
-const db = {
+const db: any = {
   Facility: Facility,
   User: User,
   Employee: Employee,

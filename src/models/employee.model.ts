@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const Employee = sequelize.define('employee', {
+export const Employee: any = sequelize.define('employee', {
   firstName: {
     type: sequelize.Sequelize.STRING,
     allowNull: false
