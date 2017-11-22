@@ -11,7 +11,7 @@
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
-    "postinstall": "npm run compile:ts"
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
