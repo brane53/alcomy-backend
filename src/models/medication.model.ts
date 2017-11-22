@@ -4,7 +4,7 @@ import { Model } from 'sequelize';
 import { Prescription } from './medication-prescription.model';
 import { MedicationInventoryItem } from './medication-inventory.model';
 
-export const Medication = sequelize.define('medication', {
+export const Medication: any = sequelize.define('medication', {
   genericName: {
     type: sequelize.Sequelize.STRING
   },

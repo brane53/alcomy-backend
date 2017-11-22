@@ -9,7 +9,6 @@ class FacilityController {
   constructor(router: Router) {
     // baseURL: /api/facilities
     router.get('/', this.getFacilities);
-    router.get('/:id', this.getResident);
     router.post('/', this.addFacility);
   }
 

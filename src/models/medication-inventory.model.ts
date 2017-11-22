@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const MedicationInventoryItem = sequelize.define('medicationInventoryItem', {
+export const MedicationInventoryItem: any = sequelize.define('medicationInventoryItem', {
   container: {
     type: sequelize.Sequelize.STRING
   },

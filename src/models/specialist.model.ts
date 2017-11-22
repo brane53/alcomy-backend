@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const Specialist = sequelize.define('specialist', {
+export const Specialist: any = sequelize.define('specialist', {
   firstName: {
     type: sequelize.Sequelize.STRING
   },
