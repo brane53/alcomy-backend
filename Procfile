@@ -1,1 +1,1 @@
-web: npm run compile:ts; node ./dist/server.js
+web: node ./dist/server.js
