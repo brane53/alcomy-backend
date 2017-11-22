@@ -41,7 +41,8 @@
     "pg": "^6.2.2",
     "pg-hstore": "^2.3.2",
     "rxjs": "^5.3.0",
-    "sequelize": "^4.4.2"
+    "sequelize": "^4.4.2",
+    "typescript": "^2.6.1"
   },
   "devDependencies": {
     "@types/bcrypt-nodejs": "0.0.30",
