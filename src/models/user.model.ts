@@ -8,7 +8,7 @@ export interface IUser {
   password?: string;
 }
 
-export const User = sequelize.define('user', {
+export const User: any = sequelize.define('user', {
   username: {
     type: sequelize.Sequelize.STRING,
     allowNull: false

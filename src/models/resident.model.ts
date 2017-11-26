@@ -18,7 +18,7 @@ export class ResidentModel {
 
 // Start Sequelize model for resident
 
-export let Resident = sequelize.define('resident', {
+export let Resident: any = sequelize.define('resident', {
   firstName: {
     type: sequelize.Sequelize.STRING,
     allowNull: false

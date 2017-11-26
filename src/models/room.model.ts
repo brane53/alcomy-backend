@@ -7,7 +7,7 @@ class RoomModel {
   capacity: number;
 }
 
-export const Room = sequelize.define('room', {
+export const Room: any = sequelize.define('room', {
   roomNumber: {
     type: sequelize.Sequelize.STRING
   },

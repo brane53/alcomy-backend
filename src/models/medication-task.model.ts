@@ -1,6 +1,6 @@
 import { sequelize } from '../lib/database';
 
-export const MedicationTask = sequelize.define('medicationTask', {
+export const MedicationTask: any = sequelize.define('medicationTask', {
   // medication
   // resident
   state: {                      // ready, popped, passed, omitted

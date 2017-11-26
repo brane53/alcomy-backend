@@ -1,6 +1,11 @@
 import { sequelize } from '../lib/database';
 
-export const Facility = sequelize.define('facility', {
+export interface IFacility {
+  name: string;
+  displayName: string;
+}
+
+export const Facility: any = sequelize.define('facility', {
   name: {
     type: sequelize.Sequelize.STRING,
     allowNull: false
