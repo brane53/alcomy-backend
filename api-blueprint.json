@@ -41,7 +41,7 @@
         "data": {}
       },
       
-      // Resident Routes
+      // Resident Routes: 
       "RESIDENTS": {
         "GET /residents": {
           "desc": "returns all residents within a certain facility given the facility id",
