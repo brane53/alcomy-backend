@@ -1,5 +1,6 @@
-import { sequelize } from '../lib/database';
-import { Facility, IFacility } from '../models/facility.model';
+import { sequelize } from '../lib/database'
+import { Facility, FacilityInstance } from '../models/facility.model'
+import { Instance } from 'sequelize';
 
 class FacilityRepository {
   constructor() {
@@ -7,18 +8,28 @@ class FacilityRepository {
   }
 
   public getFacilities() {
-    return Facility.findAll();
+    return Facility.findAll()
   }
 
+  public addFacility(facility: FacilityInstance) {
+    return Facility.create(facility)
+  }
+  
+  public getFacilityByID(id: string) {
+    return Facility.findById(id, {rejectOnEmpty: true})
+  }
 
+  public updateFacility(id: string, facility: FacilityInstance) {
+    return Facility.findById(id, { rejectOnEmpty: true })
+      .then( (f: FacilityInstance) => {
+        return f.update(facility, {returning: true})
+      })
+  }
 
-
-  // Creates a single resident in the database
-  public addFacility(facility: IFacility) {
-    console.log("facility: *************", facility)
-    return Facility.create(facility);
+  public deleteFacility(id: string) {
+    return Facility.destroy({ where: {id: id} })
   }
 
 }
 
-export default new FacilityRepository();
+export default new FacilityRepository()
