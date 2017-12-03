@@ -7,26 +7,31 @@ class FacilityRepository {
 
   }
 
-  public getFacilities() {
+  // getFacilities gets all facilities and returns a promise with those facilities
+  public getFacilities(): Promise<FacilityInstance[]>{
     return Facility.findAll()
   }
 
-  public addFacility(facility: FacilityInstance) {
+  // addFacility adds a facility and returns a promise with that facility
+  public addFacility(facility: FacilityInstance): Promise<FacilityInstance> {
     return Facility.create(facility)
   }
   
-  public getFacilityByID(id: string) {
+  // getFacilityByID gets a facility and returns a promise with that facility
+  public getFacilityByID(id: string): Promise<FacilityInstance> {
     return Facility.findById(id, {rejectOnEmpty: true})
   }
 
-  public updateFacility(id: string, facility: FacilityInstance) {
+  // updateFacility updates a facility and returns a promise with the newly edited facility
+  public updateFacility(id: string, facility: FacilityInstance): Promise<FacilityInstance> {
     return Facility.findById(id, { rejectOnEmpty: true })
       .then( (f: FacilityInstance) => {
         return f.update(facility, {returning: true})
       })
   }
 
-  public deleteFacility(id: string) {
+  // deleteFacility returns a promise with the number of facilities deleted
+  public deleteFacility(id: string): Promise<number> {
     return Facility.destroy({ where: {id: id} })
   }
 

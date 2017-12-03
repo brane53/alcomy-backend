@@ -1,15 +1,14 @@
 import FacilityRepo from '../../../repos/facilityRepository';
 import * as moment from 'moment';
 import { Router, Request, Response } from 'express';
-// import { Response } from '_debugger';
 
 
 class FacilityController {
   constructor(router: Router) {
     // baseURL: /api/facilities
     router.get('/', this.getFacilities);
-    router.post('/', this.addFacility);
     router.get('/:id', this.getFacilityByID);
+    router.post('/', this.addFacility);
     router.put('/:id', this.updateFacility);
     router.delete('/:id', this.deleteFacility);
   }
@@ -21,7 +20,7 @@ class FacilityController {
       })
       .catch((err) => {
         res.status(500).send({ error: err })
-        console.log(`getResidents failed: ${err}`);
+        console.log(`getFacilities failed: ${err}`);
       });
   }
 
