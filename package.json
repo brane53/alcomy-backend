@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/brane53/alcomy-backend#readme",
   "dependencies": {
-    "@types/sequelize": "^4.0.67",    
+    "@types/sequelize": "^4.0.67",
     "@types/bcrypt-nodejs": "0.0.30",
     "@types/body-parser": "^1.16.3",
     "@types/cookie-parser": "^1.3.30",
