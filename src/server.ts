@@ -31,8 +31,9 @@ class Server {
     this.start();
   }
 
+
   start() {
-    db.sequelize.sync({force: true}).then(() => {
+    db.sequelize.sync({force: false}).then(() => {
       console.log('Sequelize Synced');
       app.listen(port, (err) => {
         console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, port);

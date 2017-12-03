@@ -1,11 +1,21 @@
 import { sequelize } from '../lib/database';
+import { Model, SequelizeStaticAndInstance } from 'sequelize';
+import * as Sequelize from "sequelize";
 
-export interface IFacility {
+export interface FacilityAttribute {
+  id: string;
   name: string;
   displayName: string;
 }
 
-export const Facility: any = sequelize.define('facility', {
+export interface FacilityInstance extends Sequelize.Instance<FacilityAttribute>, FacilityAttribute {
+
+}
+
+export interface FacilityModel extends Sequelize.Model<FacilityInstance, FacilityAttribute> { 
+}
+
+export const Facility: FacilityModel = sequelize.define<FacilityInstance, FacilityAttribute>('Facility', {
   name: {
     type: sequelize.Sequelize.STRING,
     allowNull: false
@@ -34,9 +44,13 @@ export const Facility: any = sequelize.define('facility', {
   postalCode: {
     type: sequelize.Sequelize.STRING
   }
+},
+// options:
+{
+  paranoid: true,
 });
 
-Facility.associate = (models) => {
+(Facility as any).associate = (models) => {
   Facility.hasMany(models.Resident);
   Facility.belongsToMany(models.Employee, {through: 'facilityEmployees'});
 };

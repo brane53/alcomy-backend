@@ -5,14 +5,15 @@ import { Router, Request, Response } from 'express';
 
 
 class FacilityController {
-
   constructor(router: Router) {
     // baseURL: /api/facilities
     router.get('/', this.getFacilities);
     router.post('/', this.addFacility);
+    router.get('/:id', this.getFacilityByID);
+    router.put('/:id', this.updateFacility);
+    router.delete('/:id', this.deleteFacility);
   }
 
-  // // gets a list of residents from the residents model
   getFacilities(req: Request, res: Response) {
     FacilityRepo.getFacilities()
       .then((result) => {
@@ -24,16 +25,60 @@ class FacilityController {
       });
   }
 
-  // get a single resident record
+  getFacilityByID(req: Request, res: Response) {
+    FacilityRepo.getFacilityByID(req.params.id)
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        if (err.name === "SequelizeEmptyResultError"){
+          res.status(404).send({ error: "id not found" })
+        } else {
+          res.status(500).send({ error: err })
+        }
+        console.log(`getFacilityByID failed: ${err}`);
+      });
+  }
+
   addFacility(req: Request, res: Response) {
     FacilityRepo.addFacility(req.body)
       .then((result) => {
-        res.json(result)
+        res.status(201).json(result)
       })
       .catch((err) => {
         res.status(500).send({ error: err })
         console.log(`addFacility failed: ${err}`);
       })
+  }
+
+  updateFacility(req: Request, res: Response) {
+    FacilityRepo.updateFacility(req.params.id, req.body)
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        if (err.name === "SequelizeEmptyResultError") {
+          res.status(404).send({ error: "id not found" })
+        } else {
+          res.status(500).send({ error: err })
+        }
+        console.log(`updateFacility failed: ${err}`);
+      });
+  }
+
+  deleteFacility(req: Request, res: Response) {
+    FacilityRepo.deleteFacility(req.params.id)
+      .then((result) => {
+        if (result === 0) {
+          res.status(404).send({ error: "id not found" })
+        } else {
+          res.json(result);
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({ error: err })
+        console.log(`deleteFacility failed: ${err}`);
+      });
   }
 
 }
