@@ -6,16 +6,21 @@ export interface FacilityAttribute {
   id: string;
   name: string;
   displayName: string;
+  capacity: number;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  stateOrProvince: string;
+  postalCode: string;
 }
 
 export interface FacilityInstance extends Sequelize.Instance<FacilityAttribute>, FacilityAttribute {
-
 }
 
 export interface FacilityModel extends Sequelize.Model<FacilityInstance, FacilityAttribute> { 
 }
 
-export const Facility: FacilityModel = sequelize.define<FacilityInstance, FacilityAttribute>('Facility', {
+export const Facility: FacilityModel = sequelize.define<FacilityInstance, FacilityAttribute>('facility', {
   name: {
     type: sequelize.Sequelize.STRING,
     allowNull: false

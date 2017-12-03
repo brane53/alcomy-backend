@@ -1,7 +1,7 @@
 import { sequelize } from '../lib/database';
+import * as Sequelize from "sequelize";
 
-// With the use of Sequelize this class may be useless
-export class ResidentModel {
+export interface ResidentAttribute {
   id?: number;
   firstName?: string;
   lastName?: string;
@@ -12,13 +12,20 @@ export class ResidentModel {
   isDnr?: boolean;
   isAmbulatory?: boolean;
   isVerbal?: boolean;
-  diet?: string;
+  notes?: string
+  status?: string;
+  facilityId?: number;
 }
 
+export interface ResidentInstance extends Sequelize.Instance<ResidentAttribute>, ResidentAttribute {
+}
+
+export interface ResidentModel extends Sequelize.Model<ResidentInstance, ResidentAttribute> {
+}
 
 // Start Sequelize model for resident
 
-export let Resident: any = sequelize.define('resident', {
+export let Resident: ResidentModel = sequelize.define<ResidentInstance, ResidentAttribute>('resident', {
   firstName: {
     type: sequelize.Sequelize.STRING,
     allowNull: false
@@ -66,9 +73,13 @@ export let Resident: any = sequelize.define('resident', {
   notes: {
     type: sequelize.Sequelize.TEXT
   }
+},
+// options:
+{
+  paranoid: true,
 });
 
-Resident.associate = (models) => {
+(Resident as any).associate = (models) => {
   Resident.belongsTo(models.Facility)
   Resident.belongsToMany(models.Contact, {through: 'residentContacts'});
   Resident.belongsTo(models.Room);
