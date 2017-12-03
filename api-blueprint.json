@@ -50,7 +50,7 @@
     
   // Resident Routes
   "RESIDENTS": {
-    "GET /residents": {
+    "GET /residents?facility:1": { 
       "desc": "returns all residents within a certain facility given the facility id",
       "success": "200 application/json",
       "data": [{}]
@@ -67,6 +67,11 @@
     },
     "PUT /residents/:id": {
       "desc": "update and return the matching resident using the posted object",
+      "success": "200 application/json",
+      "data": {}
+    },
+    "DELETE /residents/:id": {
+      "desc": "deletes resident and returns an error if not successful and 1 if successful",
       "success": "200 application/json",
       "data": {}
     }

@@ -21,7 +21,6 @@ class ResidentsController {
     if (facilityID === undefined) {
       res.status(400).send({ error: "must specify a facility" })
     }
-    console.log("facility id: ", facilityID)
     ResidentRepo.getResidents(facilityID)
       .then((result) => {
         res.json(result)

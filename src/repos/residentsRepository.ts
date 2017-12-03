@@ -11,6 +11,7 @@ class ResidentRepository {
   // Gets all residents that below from a given facility and returns a promise with the residents
   public getResidents(facilityId: number): Promise<ResidentInstance[]> {
     return Resident.findAll({
+      attributes: ["id", "firstName", "lastName", "status", "gender"],
       where: { facilityId: facilityId }
     });
   }
