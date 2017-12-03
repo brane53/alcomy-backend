@@ -4,6 +4,7 @@ import * as cookieParser from 'cookie-parser';
 import * as errorhandler from 'errorhandler';
 import * as csrf from 'csurf';
 import * as morgan from 'morgan';
+import * as cors from 'cors';
 import {Request, Response, NextFunction, Express} from 'express'
 import { Router } from './router';
 
@@ -44,6 +45,7 @@ class Server {
 
   initExpressMiddleWare() {
     app.use(morgan('dev'));
+    app.use(cors());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(errorhandler());
